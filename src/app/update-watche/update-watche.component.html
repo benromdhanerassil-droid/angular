@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    <h2>Modifier une Watche :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Watche</label>
+      <input readonly type="number" [(ngModel)]="currentWatche.idWatche"
+        name="idWatche" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Marque</label>
+      <input type="text" [(ngModel)]="currentWatche.marque"
+        name="marque" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Prix</label>
+      <input type="number" [(ngModel)]="currentWatche.prixWatche"
+        name="prixWatche" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date de Fabrication</label>
+      <input type="date"
+        [ngModel]="currentWatche.dateFabrication | date: 'yyyy-MM-dd'"
+        (ngModelChange)="currentWatche.dateFabrication = $event"
+        name="dateFabrication"
+        class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Type de Mouvement</label>
+      <select [(ngModel)]="currentWatche.typeMouvement"
+        name="typeMouvement" class="form-control">
+        <option value="automatique">Automatique</option>
+        <option value="quartz">Quartz</option>
+        <option value="mécanique">Mécanique</option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateWatche()" class="btn btn-success">Modifier</button>
+    </div>
+  </form>
+</div>

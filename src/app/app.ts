@@ -9,7 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './app.css',
 })
 export class App {
-  title = 'MesProduits';
+  title = 'MesWatches';
 }
 
 export { App as AppComponent };

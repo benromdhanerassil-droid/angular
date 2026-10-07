@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <h2>Ajouter une Watche :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Watche</label>
+      <input type="number" [(ngModel)]="newWatche.idWatche"
+        name="idWatche" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Marque</label>
+      <input type="text" [(ngModel)]="newWatche.marque"
+        name="marque" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Prix</label>
+      <input type="number" [(ngModel)]="newWatche.prixWatche"
+        name="prixWatche" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date de Fabrication</label>
+      <input type="date" [(ngModel)]="newWatche.dateFabrication"
+        name="dateFabrication" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Type de Mouvement</label>
+      <select [(ngModel)]="newWatche.typeMouvement"
+        name="typeMouvement" class="form-control">
+        <option value="">-- Choisir --</option>
+        <option value="automatique">Automatique</option>
+        <option value="quartz">Quartz</option>
+        <option value="mécanique">Mécanique</option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="ajouterWatche()" class="btn btn-success">Ajouter</button>
+    </div>
+  </form>
+</div>
