@@ -9,6 +9,7 @@
           <th>Prix</th>
           <th>Date Fabrication</th>
           <th>Type Mouvement</th>
+          <th>Categorie</th>
           <th>Actions</th>
         </tr>
         @for (watche of watches; track watche.idWatche; let index = $index) {
@@ -20,6 +21,7 @@
               <td>{{watche.prixWatche}}</td>
               <td>{{watche.dateFabrication | date:'dd/MM/yyyy'}}</td>
               <td>{{watche.typeMouvement}}</td>
+              <td>{{watche.categorie?.nomCat}}</td>
               <td>
                 <a class="btn btn-danger" (click)="supprimerWatche(watche)">Supprimer</a>
                 <a class="btn btn-success" [routerLink]="['/updateWatche', watche.idWatche]">Modifier</a>
