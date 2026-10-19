@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Watche } from '../model/watche.model';
-import { Categorie } from '../model/cateegorie.model';
+import { StyleDeMontre } from '../model/styleDeMontre.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +8,15 @@ import { Categorie } from '../model/cateegorie.model';
 export class WatcheService {
   watches: Watche[];
   watche!: Watche;
-  categories!:Categorie[];
+  stylesDeMontre!: StyleDeMontre[];
 
   constructor() {
-    this.categories = [ {idCat : 1, nomCat : "Sport"},
-                        {idCat : 2, nomCat : "Luxe"},
-                        {idCat : 3, nomCat : "Classique"}, 
-                        {idCat : 4, nomCat : "Connectée"}, 
-                        {idCat : 5, nomCat : "Plongée"}];
+    this.stylesDeMontre = [
+    { idStyle: 1, nomStyle: "Sport" },
+    { idStyle: 2, nomStyle: "Luxe" },
+    { idStyle: 3, nomStyle: "Classique" },
+    { idStyle: 4, nomStyle: "Connectée" }
+    ];
     this.watches = [
       {
         idWatche: 1,
@@ -23,7 +24,15 @@ export class WatcheService {
         prixWatche: 12500.00,
         dateFabrication: new Date('2021-03-15'),
         typeMouvement: 'automatique',
-        categorie: {idCat : 1, nomCat : "Sport"}      
+        styleDeMontre: { idStyle: 1, nomStyle: "Sport" }
+      },
+      {
+        idWatche: 4,
+        marque: 'calvin klein',
+        prixWatche: 2500.00,
+        dateFabrication: new Date('2022-04-10'),
+        typeMouvement: 'quartz',
+        styleDeMontre: { idStyle: 2, nomStyle: "Luxe" }
       },
       {
         idWatche: 2,
@@ -31,15 +40,31 @@ export class WatcheService {
         prixWatche: 350.50,
         dateFabrication: new Date('2019-07-22'),
         typeMouvement: 'quartz',
-        categorie: {idCat : 2, nomCat : "Sport"}  
+        styleDeMontre: { idStyle: 2, nomStyle: "Sport" }
       },
       {
         idWatche: 3,
         marque: 'Omega',
         prixWatche: 5800.00,
         dateFabrication: new Date('2020-11-08'),
-        typeMouvement: 'mécanique'  ,    
-        categorie: {idCat : 3, nomCat : " Luxe"}        
+        typeMouvement: 'mécanique',
+        styleDeMontre: { idStyle: 3, nomStyle: "Luxe" }
+      },
+      {
+        idWatche: 5,
+        marque: 'Tissot',
+        prixWatche: 700.00,
+        dateFabrication: new Date('2022-05-15'),
+        typeMouvement: 'mécanique',
+        styleDeMontre: { idStyle: 2, nomStyle: "Luxe" }
+      },
+      {
+        idWatche: 6,
+        marque: 'Seiko',
+        prixWatche: 750.00,
+        dateFabrication: new Date('2022-05-15'),
+        typeMouvement: 'mécanique',
+        styleDeMontre: { idStyle: 2, nomStyle: "Luxe" }
       }
     ];
   }
@@ -74,10 +99,20 @@ export class WatcheService {
       this.watches.splice(index, 0, w);
     }
   }
-  listeCategories():Categorie[] {
-return this.categories;
-}
-consulterCategorie(id:number): Categorie{
-return this.categories.find(cat => cat.idCat == id)!;
-}
+  listeStylesDeMontre(): StyleDeMontre[] {
+    return this.stylesDeMontre;
+  }
+  consulterStyleDeMontre(id: number): StyleDeMontre {
+    return this.stylesDeMontre.find(style => style.idStyle == id)!;
+  }
+  rechercherParStyleDeMontre(idStyle: number): Watche[] {
+    return this.watches.filter(w => w.styleDeMontre?.idStyle == idStyle);
+  }
+  rechercherParNom(nom: string): Watche[] {
+    return this.watches.filter(w =>
+      w.marque.toLowerCase().includes(nom.toLowerCase())
+    );
+  }
+
+
 }

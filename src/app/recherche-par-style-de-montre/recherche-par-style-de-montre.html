@@ -1,0 +1,50 @@
+<div class="container">
+
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Style de montre </label>
+        <select class="form-control form-control-lg" id="idStyle" name="idStyle" [(ngModel)]="idStyle"
+            (change)="onChange()">
+            @for(style of stylesDeMontre;track style.idStyle)
+            {
+            <option value="{{style.idStyle}}"> {{style.nomStyle}} </option>
+            }
+        </select>
+    </div>
+
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>N°</th>
+          <th>Id</th>
+          <th>Marque</th>
+          <th>Prix</th>
+          <th>Date Fabrication</th>
+          <th>Type Mouvement</th>
+          <th>Style de montre</th>
+          <th>Actions</th>
+        </tr>
+        @for (watche of watches; track watche.idWatche; let index = $index) {
+          <tbody>
+            <tr>
+              <td>{{index}}</td>
+              <td>{{watche.idWatche}}</td>
+              <td>{{watche.marque}}</td>
+              <td>{{watche.prixWatche}}</td>
+              <td>{{watche.dateFabrication | date:'dd/MM/yyyy'}}</td>
+              <td>{{watche.typeMouvement}}</td>
+              <td>{{watche.styleDeMontre?.nomStyle}}</td>
+              <td>
+                <a class="btn btn-success" [routerLink]="['/updateWatche', watche.idWatche]">Modifier</a>
+                <a class="btn btn-danger" (click)="supprimerWatche(watche)">Supprimer</a>
+
+              </td>
+            </tr>
+          </tbody>
+        }
+      </table>
+    </div>
+  </div>
+</div>

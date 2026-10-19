@@ -1,4 +1,4 @@
-import { Categorie } from "./cateegorie.model";
+import { StyleDeMontre } from "./styleDeMontre.model";
 
 export class Watche {
   idWatche!: number;
@@ -6,5 +6,5 @@ export class Watche {
   prixWatche!: number;
   dateFabrication!: Date;
   typeMouvement!: string;
-  categorie!: Categorie;  
+  styleDeMontre!: StyleDeMontre;  
 }

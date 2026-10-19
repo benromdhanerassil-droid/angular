@@ -29,11 +29,11 @@
       </select>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-      <label>Categorie</label>
-      <select class="form-control form-control-lg" id="idCat" name="idCat"
-      [(ngModel)]="updatedCatId">
-      @for(cat of categories; track cat.idCat){
-      <option [value]="cat.idCat"> {{cat.nomCat}} </option>
+      <label>Style de montre</label>
+      <select class="form-control form-control-lg" id="idStyle" name="idStyle"
+      [(ngModel)]="updatedStyleId">
+      @for(style of stylesDeMontre; track style.idStyle){
+      <option [value]="style.idStyle"> {{style.nomStyle}} </option>
       }
       </select>
     </div>

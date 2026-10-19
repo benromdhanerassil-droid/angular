@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WatcheService } from '../services/watche.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Categorie } from '../model/cateegorie.model';
+import { StyleDeMontre } from '../model/styleDeMontre.model';
 
 @Component({
   selector: 'app-update-watche',
@@ -15,8 +15,8 @@ import { Categorie } from '../model/cateegorie.model';
 })
 export class UpdateWatcheComponent implements OnInit {
   currentWatche = new Watche();
-  categories! : Categorie[];
-  updatedCatId! : number;
+  stylesDeMontre! : StyleDeMontre[];
+  updatedStyleId! : number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,13 +25,13 @@ export class UpdateWatcheComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {    
-    this.categories = this.watcheService.listeCategories();
+    this.stylesDeMontre = this.watcheService.listeStylesDeMontre();
     this.currentWatche = this.watcheService.consulterWatche(this.activatedRoute.snapshot.params['id']);
-    this.updatedCatId = this.currentWatche.categorie.idCat;
+    this.updatedStyleId = this.currentWatche.styleDeMontre.idStyle;
   }
 
   updateWatche() {
-    this.currentWatche.categorie = this.watcheService.consulterCategorie(this.updatedCatId);
+    this.currentWatche.styleDeMontre = this.watcheService.consulterStyleDeMontre(this.updatedStyleId);
     this.watcheService.updateWatche(this.currentWatche);
     this.router.navigate(['watches']);
   }
