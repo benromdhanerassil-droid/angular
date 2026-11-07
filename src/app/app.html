@@ -1,9 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Gestion des Watches</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -13,28 +12,36 @@
           <a class="nav-link active" aria-current="page" routerLink="/watches">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownWatches"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownWatches" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             Watches
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownWatches">
+            @if(authService.isAdmin()) {
             <li><a class="dropdown-item" routerLink="/add-watche">Ajouter</a></li>
+            }
             <li><a class="dropdown-item" routerLink="/watches">Lister</a></li>
-            <li> <a class="dropdown-item" routerLink="/rechercheParStyleDeMontre" >Recherche Par Style de montre</a></li>
-            <li><a class="dropdown-item" routerLink="/rechercheParNom" >Recherche Par Marque</a></li>
+            <li> <a class="dropdown-item" routerLink="/rechercheParStyleDeMontre">Recherche Par Style de montre</a></li>
+            <li><a class="dropdown-item" routerLink="/rechercheParNom">Recherche Par Marque</a></li>
           </ul>
         </li>
       </ul>
 
       <ul class="navbar-nav ms-auto m-2">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            [username]
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            [{{authService.loggedUser}}]
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownUser">
-            <li><a class="dropdown-item" href="#">Login</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+
+            @if(!authService.isloggedIn){
+            <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+            }
+            @else {
+            <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+            }
+
             <li><a class="dropdown-item" href="#">Profile</a></li>
           </ul>
         </li>

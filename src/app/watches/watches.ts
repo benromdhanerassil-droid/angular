@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Watche } from '../model/watche.model';
 import { WatcheService } from '../services/watche.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-watches',
@@ -14,9 +15,11 @@ import { WatcheService } from '../services/watche.service';
 export class WatchesComponent implements OnInit {
   watches: Watche[];
 
-  constructor(private watcheService: WatcheService) {
+  constructor(private watcheService: WatcheService, public authService: AuthService) { 
     this.watches = watcheService.listeWatches();
+    
   }
+  
 
   ngOnInit(): void {}
 

@@ -31,6 +31,7 @@ export class RechercheParStyleDeMontre implements OnInit {
     const conf = confirm('Êtes-vous sûr de vouloir supprimer cette watche ?');
     if (conf) {
       this.watcheService.supprimerWatche(w);
+      this.onChange();
     }
   }
 }

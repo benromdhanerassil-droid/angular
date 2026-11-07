@@ -13,24 +13,25 @@
           <th>Actions</th>
         </tr>
         @for (watche of watches; track watche.idWatche; let index = $index) {
-          <tbody>
-            <tr>
-              <td>{{index}}</td>
-              <td>{{watche.idWatche}}</td>
-              <td>{{watche.marque}}</td>
-              <td>{{watche.prixWatche}}</td>
-              <td>{{watche.dateFabrication | date:'dd/MM/yyyy'}}</td>
-              <td>{{watche.typeMouvement}}</td>
-              <td>{{watche.styleDeMontre?.nomStyle}}</td>
-              <td>
-                <a class="btn btn-success" [routerLink]="['/updateWatche', watche.idWatche]">Modifier</a>
-                <a class="btn btn-danger" (click)="supprimerWatche(watche)">Supprimer</a>
-
-              </td>
-            </tr>
-          </tbody>
+        <tbody>
+          <tr>
+            <td>{{index}}</td>
+            <td>{{watche.idWatche}}</td>
+            <td>{{watche.marque}}</td>
+            <td>{{watche.prixWatche}}</td>
+            <td>{{watche.dateFabrication | date:'dd/MM/yyyy'}}</td>
+            <td>{{watche.typeMouvement}}</td>
+            <td>{{watche.styleDeMontre?.nomStyle}}</td>
+            <td>
+              @if(authService.isAdmin()) {
+            <td><a class="btn btn-danger" (click)="supprimerWatche(watche)">Supprimer</a></td>
+            <td><a class="btn btn-success" [routerLink]="['/updateWatche',watche.idWatche]">Modifier</a></td>
+            }
+            </td>
+          </tr>
+        </tbody>
         } @empty {
-          <h1>Aucune watche trouvée !</h1>
+        <h1>Aucune watche trouvée !</h1>
         }
       </table>
     </div>

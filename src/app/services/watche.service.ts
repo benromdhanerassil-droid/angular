@@ -26,6 +26,23 @@ export class WatcheService {
         typeMouvement: 'automatique',
         styleDeMontre: { idStyle: 1, nomStyle: "Sport" }
       },
+      
+      {
+        idWatche: 2,
+        marque: 'apple',
+        prixWatche: 350.50,
+        dateFabrication: new Date('2019-07-22'),
+        typeMouvement: 'automatique',
+        styleDeMontre: { idStyle: 4, nomStyle: "Connectée" }
+      },
+      {
+        idWatche: 3,
+        marque: 'Omega',
+        prixWatche: 5800.00,
+        dateFabrication: new Date('2020-11-08'),
+        typeMouvement: 'mécanique',
+        styleDeMontre: { idStyle: 3, nomStyle: "Classique" }
+      },
       {
         idWatche: 4,
         marque: 'calvin klein',
@@ -34,22 +51,7 @@ export class WatcheService {
         typeMouvement: 'quartz',
         styleDeMontre: { idStyle: 2, nomStyle: "Luxe" }
       },
-      {
-        idWatche: 2,
-        marque: 'Seiko',
-        prixWatche: 350.50,
-        dateFabrication: new Date('2019-07-22'),
-        typeMouvement: 'quartz',
-        styleDeMontre: { idStyle: 2, nomStyle: "Sport" }
-      },
-      {
-        idWatche: 3,
-        marque: 'Omega',
-        prixWatche: 5800.00,
-        dateFabrication: new Date('2020-11-08'),
-        typeMouvement: 'mécanique',
-        styleDeMontre: { idStyle: 3, nomStyle: "Luxe" }
-      },
+      
       {
         idWatche: 5,
         marque: 'Tissot',
