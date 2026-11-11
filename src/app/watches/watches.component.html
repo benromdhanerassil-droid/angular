@@ -10,7 +10,9 @@
           <th>Date Fabrication</th>
           <th>Type Mouvement</th>
           <th>Style de montre</th>
-          <th>Actions</th>
+          <td> 
+            @if(authService.isAdmin()) {<th>Actions</th>}
+          </td>
         </tr>
         @for (watche of watches; track watche.idWatche; let index = $index) {
         <tbody>

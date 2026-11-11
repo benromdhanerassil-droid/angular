@@ -1,0 +1,15 @@
+<form>
+    <div [hidden]="ajout">
+        <label>ID style_de_montre</label>
+        <input type="text" [(ngModel)]="styleDeMontre.idStyle" name="idStyle" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom style</label>
+        <input type="text" [(ngModel)]="styleDeMontre.nomStyle" name="nomStyle" class="form-control"
+            placeholder="Entrez un nom de catégorie...">
+    </div>
+    <div class="mt-2">
+        <button type="button" [disabled]="!styleDeMontre.nomStyle" class="btn btn-success"
+            (click)="saveStyleDeMontre()">{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+</form>

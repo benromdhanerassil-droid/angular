@@ -4,9 +4,12 @@ import { AddWatcheComponent } from './add-watche/add-watche';
 import { UpdateWatcheComponent } from './update-watche/update-watche';
 import { RechercheParStyleDeMontre } from './recherche-par-style-de-montre/recherche-par-style-de-montre';
 import { RechercheParNom } from './recherche-par-nom/recherche-par-nom';
+import { ListestyleDeMontreComponent } from './listestyle-de-montre/listestyle-de-montre';
 import { LoginComponent } from './login/login';
 import { ForbiddenComponent } from './forbidden/forbidden';
 import { WatcheGuard } from './watche.guard';
+
+
 export const routes: Routes = [
   { path: 'watches', component: WatchesComponent },
   { path: 'add-watche', component: AddWatcheComponent,canActivate:[WatcheGuard]},
@@ -16,5 +19,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'app-forbidden', component: ForbiddenComponent },
   { path: 'forbidden', component: ForbiddenComponent },
+  { path: 'listestyle-de-montre', component: ListestyleDeMontreComponent },
   { path: '', redirectTo: 'watches', pathMatch: 'full' }
 ];

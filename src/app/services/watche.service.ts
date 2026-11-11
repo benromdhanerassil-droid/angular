@@ -107,6 +107,29 @@ export class WatcheService {
   consulterStyleDeMontre(id: number): StyleDeMontre {
     return this.stylesDeMontre.find(style => style.idStyle == id)!;
   }
+  updateStyleDeMontre(s: StyleDeMontre) {
+    let index = this.stylesDeMontre.findIndex(item => item.idStyle == s.idStyle);
+    if (index > -1) {
+      this.stylesDeMontre[index] = { ...s };
+    }
+  }
+  ajouterStyleDeMontre(s: StyleDeMontre): StyleDeMontre {
+    const maxId = this.stylesDeMontre.length > 0 
+      ? Math.max(...this.stylesDeMontre.map(item => item.idStyle)) 
+      : 0;
+    const newStyle: StyleDeMontre = {
+      idStyle: maxId + 1,
+      nomStyle: s.nomStyle
+    };
+    this.stylesDeMontre.push(newStyle);
+    return newStyle;
+  }
+  supprimerStyleDeMontre(s: StyleDeMontre) {
+    const index = this.stylesDeMontre.findIndex(item => item.idStyle == s.idStyle);
+    if (index > -1) {
+      this.stylesDeMontre.splice(index, 1);
+    }
+  }
   rechercherParStyleDeMontre(idStyle: number): Watche[] {
     return this.watches.filter(w => w.styleDeMontre?.idStyle == idStyle);
   }
@@ -115,6 +138,7 @@ export class WatcheService {
       w.marque.toLowerCase().includes(nom.toLowerCase())
     );
   }
-
-
 }
+
+
+

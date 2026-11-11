@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-updatestyle-de-montre [styleDeMontre]="updatedStyle"
+            (styleDeMontreUpdated)="styleDeMontreUpdated($event)" [ajout]="ajout">
+        </app-updatestyle-de-montre>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Style</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(style of stylesDeMontre; track style.idStyle)
+                    {
+                    <tr>
+                        <td>{{style.idStyle}}</td>
+                        <td>{{style.nomStyle}}</td>
+                        <td><a class="btn btn-success" (click)="updateStyle(style)">Editer</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
